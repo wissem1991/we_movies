@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %}
+    <script>
+        const homeRoute = "{{ path('homepage')|escape('js') }}";
+    </script>
+    {{ parent() }}
+    {{ encore_entry_script_tags('movie') }}
+{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row">
+{#        {% include '_search.html.twig' %}#}
+    </div>
+    <div class="row">
+       {% include '_best_movie.html.twig' with {'movie': bestMovie} %}
+    </div>
+    <div class="row">
+        <div class="col-3">
+            {% if genreList is not null %}
+                {% include '_genres.html.twig' with {'genres' : genreList.genres} %}
+            {% endif %}
+        </div>
+
+        <div class="col-9">
+            {% include '_movies.html.twig' with {'movies' : movieList, 'totalPages': totalPages, 'page': page} %}
+        </div>
+    </div>
+</div>
+    {% include '_movie_modal.html.twig' %}
+{% endblock %}

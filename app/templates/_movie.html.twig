@@ -1,0 +1,13 @@
+<div class="movie-cards">
+    <div class="row">
+        <div class="col-4">
+            <img class="movie-img" src="{{ the_movies_image_base_uri ~ movie.posterPath}}">
+        </div>
+        <div class="col-7">
+            {{ movie.overview }}
+        </div>
+    </div>
+    <div class="row">
+        <button data-path="{{ path('movie_details', {'movieId': movie.id}) }}" class="btn btn-primary movie-details"> more details</button>
+    </div>
+</div>

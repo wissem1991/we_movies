@@ -1,0 +1,9 @@
+twig:
+    default_path: '%kernel.project_dir%/templates'
+
+    globals:
+        the_movies_image_base_uri: '%env(THE_MOVIE_DB_IMAGE_BASE_URI)%'
+
+when@test:
+    twig:
+        strict_variables: true

@@ -1,0 +1,10 @@
+{% for movie in movies %}
+    {% include '_movie.html.twig' with {'movie' : movie} %}
+{% endfor %}
+
+<div class="d-flex justify-content-end text-right mt-2">
+    <nav>
+        <ul class="pagination" data-total-count="{{ totalPages }}" data-current-page="{{ page }}">
+        </ul>
+    </nav>
+</div>
