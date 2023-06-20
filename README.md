@@ -31,5 +31,5 @@ sudo apt-get -y install make
 ## Build the application
 
 ```
-make install
+make install # project running on [this](http://localhost:8080/)http://localhost:8080/
 ```
