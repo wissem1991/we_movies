@@ -1,3 +1,6 @@
+import autocomplete from 'autocomplete.js';
+import 'autocomplete.js/dist/autocomplete.jquery';
+
 document.addEventListener('DOMContentLoaded', function() {
     const pagination = document.querySelector('.pagination');
     const totalCount = parseInt(pagination.dataset.totalCount);
@@ -72,6 +75,23 @@ $('.movie-details').on('click', function() {
 
 $('.dismiss-modal').on('click', function() {
     $('.modal').hide();
+});
+
+$( "#autocomplete" ).each(function() {
+    const autocompleteUrl = this.dataset.autocompleteUrl;
+    $(this).autocomplete({hint: false}, [
+        {
+            source: function(query, response) {
+                $.ajax({
+                    url: autocompleteUrl+'?query='+query
+                }).then(function(data) {
+                    data = JSON.parse(data)
+                    response(data['results'])
+                });
+            },
+            displayKey: 'title'
+        }
+    ])
 });
 
 function addItem(number) {

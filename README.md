@@ -18,7 +18,12 @@ In order to run this container you'll need docker installed.
  git clone https://github.com/wissem1991/we_movies.git
 ```
 
-## install make commande 
+## Configuration
+```
+$ cp .env .env.local #define the right credentials in .env.local
+```
+
+## Install make commande 
 ```
 sudo apt-get -y install make
 ```

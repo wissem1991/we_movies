@@ -5,17 +5,16 @@ kernel:
 homepage:
     path: /
     controller: App\Controller\DefaultController::home
-    options:
-        expose: true
 
 movie_details:
     path: /movie/{movieId}
     controller: App\Controller\MovieController::details
-    options:
-        expose: true
 
-search:
-    path: /search/{search}
-    controller: App\Controller\DefaultController::search
-    options:
-        expose: true
+movies_by_genre:
+    path: /movies/{genreName}/{genreId}
+    controller: App\Controller\GenreController::movies
+
+movie_search:
+    path: /search
+    controller: App\Controller\MovieController::search
+

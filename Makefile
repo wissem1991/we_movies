@@ -89,3 +89,10 @@ assets: ./app/node_modules
 ## Run Webpack Encore in watch mode
 watch: ./app/node_modules
 	$(YARN) run watch
+
+#################################
+Tests:
+
+## Run  tests
+test: ./app
+	$(EXEC_PHP) bin/phpunit

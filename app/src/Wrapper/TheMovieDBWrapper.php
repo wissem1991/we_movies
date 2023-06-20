@@ -29,9 +29,31 @@ class TheMovieDBWrapper
      * @throws RedirectionExceptionInterface
      * @throws ClientExceptionInterface
      */
+    public function getMoviesByGenreId(int $genreId, int $page): string
+    {
+        return $this->handleGetRequest(sprintf('3/genre/%s/movies?page=%s', $genreId, $page));
+    }
+
+    /**
+     * @throws TransportExceptionInterface
+     * @throws ServerExceptionInterface
+     * @throws RedirectionExceptionInterface
+     * @throws ClientExceptionInterface
+     */
     public function getMovieDetails(int $idMovie): string
     {
         return $this->handleGetRequest('3/movie/' . $idMovie);
+    }
+
+    /**
+     * @throws TransportExceptionInterface
+     * @throws ServerExceptionInterface
+     * @throws RedirectionExceptionInterface
+     * @throws ClientExceptionInterface
+     */
+    public function searchMovie(string $query): string
+    {
+        return $this->handleGetRequest('3/search/movie?query=' . $query);
     }
 
     /**

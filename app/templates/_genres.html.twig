@@ -1,6 +1,8 @@
 <ul class="list-group">
         <li class="list-group-item">All</li>
     {% for genre in genres %}
-        <li class="list-group-item" data-id="{{ genre.id }}">{{ genre.name }}</li>
+        <li class="list-group-item" >
+               <a href="{{ path('movies_by_genre' , {'genreName': genre.name, 'genreId': genre.id}) }}">{{ genre.name }}</a>
+        </li>
     {% endfor %}
 </ul>

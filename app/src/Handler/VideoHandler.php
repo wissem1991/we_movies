@@ -6,7 +6,7 @@ use App\Entity\Video;
 
 final class VideoHandler
 {
-    private array $videoHandlers = [];
+    private $videoHandlers = [];
 
     public function __construct($videoHandlers)
     {

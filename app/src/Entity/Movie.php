@@ -11,6 +11,9 @@ class Movie
     private string $title;
     private string $overview;
     private string $posterPath;
+    private float $voteAverage;
+    private int $voteCount;
+    private DateTimeInterface $releaseDate;
     private ?Video $video = null;
 
     /**
@@ -91,5 +94,53 @@ class Movie
     public function setVideo(?Video $video): void
     {
         $this->video = $video;
+    }
+
+    /**
+     * @return float
+     */
+    public function getVoteAverage(): float
+    {
+        return $this->voteAverage;
+    }
+
+    /**
+     * @param float $voteAverage
+     */
+    public function setVoteAverage(float $voteAverage): void
+    {
+        $this->voteAverage = $voteAverage;
+    }
+
+    /**
+     * @return float
+     */
+    public function getVoteCount(): float
+    {
+        return $this->voteCount;
+    }
+
+    /**
+     * @param float $voteCount
+     */
+    public function setVoteCount(float $voteCount): void
+    {
+        $this->voteCount = $voteCount;
+    }
+
+    /**
+     * @return DateTimeInterface
+     */
+    public function getReleaseDate(): DateTimeInterface
+    {
+        return $this->releaseDate;
+    }
+
+    /**
+     * @param DateTimeInterface $releaseDate
+     */
+    public function setReleaseDate(DateTimeInterface $releaseDate): void
+    {
+        $this->releaseDate = $releaseDate;
     }
 }

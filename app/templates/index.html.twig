@@ -9,10 +9,12 @@
 {% block body %}
 <div class="container">
     <div class="row">
-{#        {% include '_search.html.twig' %}#}
+        {% include '_search.html.twig' %}
     </div>
     <div class="row">
-       {% include '_best_movie.html.twig' with {'movie': bestMovie} %}
+        {% if bestMovie is not null %}
+            {% include '_best_movie.html.twig' with {'movie': bestMovie} %}
+        {% endif %}
     </div>
     <div class="row">
         <div class="col-3">

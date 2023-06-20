@@ -1,10 +1,28 @@
 <div class="movie-cards">
     <div class="row">
-        <div class="col-4">
+        <div class="col-3">
             <img class="movie-img" src="{{ the_movies_image_base_uri ~ movie.posterPath}}">
         </div>
-        <div class="col-7">
-            {{ movie.overview }}
+        <div class="col-9">
+            <div class="row">
+                <div class="col-6">
+                    <h5>{{ movie.title }}</h5>
+                </div>
+                <div class="col-6 vote">
+                    {% include '_movie_vote.html.twig' with {'average': movie.voteAverage} %}
+                    <span>({{ movie.voteCount }})</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <h5>{{ movie.releaseDate| date('Y') }}</h5>
+                </div>
+            </div>
+            <div class="row">
+                <p>
+                    {{ movie.overview }}
+                </p>
+            </div>
         </div>
     </div>
     <div class="row">

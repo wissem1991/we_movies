@@ -23,6 +23,19 @@ class MovieProvider extends AbstractProvider
         parent::__construct($movieDBWrapper, $serializer, $cache);
     }
 
+    /**
+     * @param Movie[] $movieList
+     * @return Movie
+     */
+    public function getBestMovieInList(array &$movieList): Movie
+    {
+        /** @var Movie $bestMovie */
+        $bestMovie = array_shift($movieList);
+        $bestMovie->setVideo($this->videoProvider->getVideoById($bestMovie->getId()));
+
+        return $bestMovie;
+    }
+
     public function getTopRatedMoviesList(int $page = 1): ?MovieList
     {
         $cacheKey = sprintf('top_rated_movies_%s', $page);

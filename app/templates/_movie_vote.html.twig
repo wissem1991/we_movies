@@ -1,0 +1,14 @@
+{% set totalStars = 5 %}
+{% set checked = (average / 2) | round  %}
+{% set unchecked =  totalStars - checked %}
+{% if checked >= 1 %}
+    {% for i in 1..checked %}
+        <span class="fa fa-star checked"></span>
+    {% endfor %}
+{% endif %}
+
+{% if unchecked >= 1 %}
+    {% for i in 1..unchecked %}
+        <span class="fa fa-star"></span>
+    {% endfor %}
+{% endif %}

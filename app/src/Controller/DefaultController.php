@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Movie;
 use App\Provider\GenreProvider;
 use App\Provider\MovieProvider;
 use App\Provider\VideoProvider;
@@ -26,11 +25,7 @@ class DefaultController extends AbstractController
 
         if (null !== $allMovies) {
             $allMoviesList = $allMovies->getResults();
-
-            /** @var Movie $bestMovie */
-            $bestMovie = array_shift($allMoviesList);
-            $bestMovie->setVideo($videoMovieProvider->getVideoById($bestMovie->getId()));
-            $totalPages = $allMovies->getTotalPages();
+            $bestMovie = $movieProvider->getBestMovieInList($allMoviesList);
         }
 
         return $this->render('index.html.twig', [
